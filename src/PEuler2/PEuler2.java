@@ -14,4 +14,26 @@ package PEuler2;
  * Created by jeremy on 12/5/15.
  */
 public class PEuler2 {
+
+    public static void main(String[] args) {
+        int latestFibNum = 0;
+        int totalSum = 0;
+
+        for (int x = 0; latestFibNum < 4000000; x++){
+            latestFibNum = fib(x);
+            if (latestFibNum % 2 == 0){
+                totalSum += latestFibNum;
+            }
+        }
+
+        System.out.println(totalSum);
+    }
+
+    private static int fib(int n) {
+        return (int)Math.round(Math.pow(phi, n)/square5);
+    }
+
+    private static double square5 = Math.sqrt(5);
+    private static double phi = (square5+1)/2;
+
 }
