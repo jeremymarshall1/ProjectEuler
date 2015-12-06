@@ -16,7 +16,9 @@ public class PEuler3 {
 
     public static void main(String[] args) {
         double squareMax = Math.sqrt(600851475143D);
-        findPrimeNumbers(squareMax);
+        ArrayList<Long> primeNums = findPrimeNumbers(squareMax);
+
+        System.out.println(findLargestPrimeFactor(primeNums, 600851475143D));
     }
 
     private static ArrayList<Long> findPrimeNumbers(double max){
@@ -26,8 +28,8 @@ public class PEuler3 {
             allNumbers.add((long) x);
         }
 
-        for (long y: allNumbers){
-            long checkNum = y;
+        for (int y = 0; y < allNumbers.size(); y++){
+            long checkNum = allNumbers.get(y);
             for (int z = allNumbers.indexOf(checkNum)+1; z < allNumbers.size(); z++){
                 if (allNumbers.get(z) % checkNum == 0){
                     allNumbers.remove(z);
@@ -39,5 +41,15 @@ public class PEuler3 {
         System.out.println("test");
 
         return allNumbers;
+    }
+
+    private static double findLargestPrimeFactor(ArrayList<Long> primeNumbers, double targetNumber){
+        for (int x = primeNumbers.size()-1; x > 0; x--){
+            if (targetNumber % primeNumbers.get(x) == 0) {
+                return primeNumbers.get(x);
+            }
+        }
+
+        return 0D;
     }
 }
