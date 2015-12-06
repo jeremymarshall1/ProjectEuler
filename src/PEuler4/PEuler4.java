@@ -21,4 +21,20 @@ public class PEuler4 {
      * Possible method 2: Brute force by multiplying every 3-digit number against each other, starting with the highest
      * value, until a palindrome is found
      */
+
+    public static void main(String[] args) {
+        System.out.println(isPalindromic(1002));
+    }
+
+    public static boolean isPalindromic(int number) {
+        String stNumber = Integer.toString(number);
+
+        for (int x = 0; x < stNumber.length(); x++) {
+            //What is going on here, lol
+            if (!(stNumber.charAt(x) == stNumber.charAt(stNumber.length()-1-x))) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
