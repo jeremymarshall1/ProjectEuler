@@ -1,7 +1,6 @@
 package PEuler3;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Largest prime factor
@@ -15,14 +14,21 @@ import java.util.List;
 public class PEuler3 {
 
     public static void main(String[] args) {
-        double squareMax = Math.sqrt(600851475143D);
-        ArrayList<Long> primeNums = findPrimeNumbers(squareMax);
+
+        double squareMax;
+        if (args.length > 0) {
+            squareMax = Math.sqrt(Double.parseDouble(args[0]));
+        } else {
+            squareMax = Math.sqrt(600851475143D);
+        }
+
+        long [] primeNums = findPrimeNumbers(squareMax);
 
         System.out.println(findLargestPrimeFactor(primeNums, 600851475143D));
     }
 
-    private static ArrayList<Long> findPrimeNumbers(double max){
-        ArrayList<Long> allNumbers = new ArrayList<Long>(100);
+    private static long[] findPrimeNumbers(double max){
+        ArrayList<Long> allNumbers = new ArrayList<>(100);
 
         for (double x = 2; x < max; x++){
             allNumbers.add((long) x);
@@ -38,15 +44,21 @@ public class PEuler3 {
 
         }
 
-        System.out.println("test");
+        long[] returnValue = new long[allNumbers.size()];
 
-        return allNumbers;
+        for (int x = 0; x < allNumbers.size(); x++) {
+            returnValue[x] = allNumbers.get(x);
+        }
+
+        return returnValue;
+
+
     }
 
-    private static double findLargestPrimeFactor(ArrayList<Long> primeNumbers, double targetNumber){
-        for (int x = primeNumbers.size()-1; x > 0; x--){
-            if (targetNumber % primeNumbers.get(x) == 0) {
-                return primeNumbers.get(x);
+    private static double findLargestPrimeFactor(long[] primeNumbers, double targetNumber){
+        for (int x = primeNumbers.length-1; x > 0; x--){
+            if (targetNumber % primeNumbers[x] == 0) {
+                return primeNumbers[x];
             }
         }
 
