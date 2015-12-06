@@ -10,4 +10,15 @@ package PEuler4;
  * Created by jeremy on 12/6/15.
  */
 public class PEuler4 {
+    /**
+     * Range of possible 3-digit numbers: 100-999
+     * Range of possible products from 2 3-digit numbers: 10000 - 998001
+     * Range of possible products from 2 3-digit numbers that are palindromes: 10001 - 899998
+     *
+     * Possible method 1: Create a palindromic number, starting with '8', and find two 3-digit numbers that
+     * can be multiplied to create that number
+     *
+     * Possible method 2: Brute force by mutliplying every 3-digit number against each other, starting with the highest
+     * value, until a palindrome is found
+     */
 }
