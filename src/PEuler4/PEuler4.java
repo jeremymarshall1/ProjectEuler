@@ -18,7 +18,7 @@ public class PEuler4 {
      * Possible method 1: Create a palindromic number, starting with '8', and find two 3-digit numbers that
      * can be multiplied to create that number
      *
-     * Possible method 2: Brute force by mutliplying every 3-digit number against each other, starting with the highest
+     * Possible method 2: Brute force by multiplying every 3-digit number against each other, starting with the highest
      * value, until a palindrome is found
      */
 }
