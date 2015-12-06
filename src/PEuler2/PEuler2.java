@@ -18,8 +18,12 @@ public class PEuler2 {
     public static void main(String[] args) {
         int latestFibNum = 0;
         int totalSum = 0;
+        int maxNumber = 4000000;
+        if (args.length > 0) {
+            maxNumber = Integer.parseInt(args[0]);
+        }
 
-        for (int x = 0; latestFibNum < 4000000; x++){
+        for (int x = 0; latestFibNum < maxNumber; x++){
             latestFibNum = fib(x);
             if (latestFibNum % 2 == 0){
                 totalSum += latestFibNum;
@@ -30,6 +34,8 @@ public class PEuler2 {
     }
 
     private static int fib(int n) {
+        // Calculate the nth fibonacci value using the rounding method found here,
+        // http://will.thimbleby.net/algorithms/doku.php?id=fibonacci
         return (int)Math.round(Math.pow(phi, n)/square5);
     }
 
