@@ -13,9 +13,9 @@ public class PEuler4 {
     /**
      * Range of possible 3-digit numbers: 100-999
      * Range of possible products from 2 3-digit numbers: 10000 - 998001
-     * Range of possible products from 2 3-digit numbers that are palindromes: 10001 - 899998
+     * Range of possible products from 2 3-digit numbers that are palindromes: 10001 - 997799
      *
-     * Possible method 1: Create a palindromic number, starting with '8', and find two 3-digit numbers that
+     * Possible method 1: Create a palindromic number and find two 3-digit numbers that
      * can be multiplied to create that number
      *
      * Possible method 2: Brute force by multiplying every 3-digit number against each other, starting with the highest
@@ -23,18 +23,54 @@ public class PEuler4 {
      */
 
     public static void main(String[] args) {
-        System.out.println(isPalindromic(1002));
+        int rangeStart = 100;
+        int rangeEnd = 999;
+
+        int prodRangeStart = rangeStart * rangeStart;
+        int prodRangeEnd = rangeEnd * rangeEnd;
+
+        int testPalindrome;
+
+        while (prodRangeEnd > prodRangeStart){
+            if (isPalindromic(prodRangeEnd)){
+                //find factors
+                System.out.println(prodRangeEnd);
+            }
+            prodRangeEnd--;
+        }
     }
 
     public static boolean isPalindromic(int number) {
         String stNumber = Integer.toString(number);
+        int endIndex = stNumber.length() -1;
 
         for (int x = 0; x < stNumber.length(); x++) {
-            //What is going on here, lol
-            if (!(stNumber.charAt(x) == stNumber.charAt(stNumber.length()-1-x))) {
+            if (!(stNumber.charAt(x) == stNumber.charAt(endIndex-x))) {
                 return false;
             }
         }
         return true;
+    }
+
+    public static int[] hasThreeDigitOperands(int number) {
+        int otherOperand = 0;
+        for (int x = 100; x < 1000; x++){
+            if (number % x == 0) {
+                otherOperand = number / x;
+            } else {
+                continue;
+            }
+
+            if ((100 <= otherOperand) && (otherOperand < 1000)) {
+                int[] returnValue = new int[2];
+                returnValue[0] = x;
+                returnValue[1] = otherOperand;
+                return returnValue;
+            }
+        }
+
+        int[] returnValue = new int[1];
+        returnValue[0] = 0;
+        return returnValue;
     }
 }
