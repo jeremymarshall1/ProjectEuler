@@ -29,12 +29,17 @@ public class PEuler4 {
         int prodRangeStart = rangeStart * rangeStart;
         int prodRangeEnd = rangeEnd * rangeEnd;
 
-        int testPalindrome;
-
         while (prodRangeEnd > prodRangeStart){
             if (isPalindromic(prodRangeEnd)){
                 //find factors
-                System.out.println(prodRangeEnd);
+                int[] checkOperands = new int[2];
+                checkOperands = hasThreeDigitOperands(prodRangeEnd);
+                if (checkOperands[0] != 0){
+                    System.out.println(checkOperands[0] + "," + checkOperands[1]);
+                    System.out.println(prodRangeEnd);
+                    break;
+                }
+                //System.out.println(prodRangeEnd);
             }
             prodRangeEnd--;
         }
@@ -69,7 +74,7 @@ public class PEuler4 {
             }
         }
 
-        int[] returnValue = new int[1];
+        int[] returnValue = new int[2];
         returnValue[0] = 0;
         return returnValue;
     }
