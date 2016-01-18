@@ -1,9 +1,11 @@
+package ProjectEuler;
+
 import java.util.ArrayList;
 
 /**
  * Created by jeremy on 12/24/15.
  */
-public class Number {
+public class Nums {
 
     public static ArrayList<Double> getPrimeFactors(double num) {
         ArrayList<Double> factors = new ArrayList<>();
