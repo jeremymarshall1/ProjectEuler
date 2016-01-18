@@ -11,7 +11,7 @@ package PEuler5;
  */
 public class PEuler5 {
     public static void main(String[] args) {
-        System.out.println(getSmallestMultiple(10));
+        System.out.println(getSmallestMultiple(20));
     }
 
     public static int getSmallestMultiple(int num) {
