@@ -10,4 +10,21 @@ package PEuler5;
  * Created by jeremy on 1/17/16.
  */
 public class PEuler5 {
+    public static void main(String[] args) {
+        System.out.println(getSmallestMultiple(10));
+    }
+
+    public static int getSmallestMultiple(int num) {
+        int multiple = num;
+
+        for (int x = 1; x <= multiple; x++){
+            if (num % x != 0) {
+                num += multiple;
+                x = 1;
+                continue;
+            }
+        }
+
+        return num;
+    }
 }
