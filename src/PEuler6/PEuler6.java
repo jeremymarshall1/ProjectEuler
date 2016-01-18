@@ -39,6 +39,6 @@ public class PEuler6 {
     }
 
     public static void main(String[] args) {
-        System.out.println(getSumSqDiff(10));
+        System.out.println(getSumSqDiff(100));
     }
 }
