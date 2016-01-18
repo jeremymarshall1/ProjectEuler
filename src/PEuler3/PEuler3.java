@@ -14,17 +14,14 @@ import java.util.ArrayList;
 public class PEuler3 {
 
     public static void main(String[] args) {
+        ArrayList<Double> factors = new ArrayList<>();
 
-        double squareMax;
-        if (args.length > 0) {
-            squareMax = Math.sqrt(Double.parseDouble(args[0]));
-        } else {
-            squareMax = Math.sqrt(600851475143D);
-        }
 
-        long [] primeNums = findPrimeNumbers(squareMax);
 
-        System.out.println(findLargestPrimeFactor(primeNums, 600851475143D));
+        factors = ProjectEuler.Nums.getPrimeFactors(600851475143D);
+
+
+        System.out.println(factors.get(factors.size() - 1));
     }
 
     private static long[] findPrimeNumbers(double max){
