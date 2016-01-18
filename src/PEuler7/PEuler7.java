@@ -1,5 +1,7 @@
 package PEuler7;
 
+import java.util.ArrayList;
+
 /**
  * 10001st prime
  * Problem 7
@@ -10,4 +12,34 @@ package PEuler7;
  * Created by jeremy on 1/17/16.
  */
 public class PEuler7 {
+    public static void main(String[] args) {
+
+        System.out.println(findSpecificPrime(10001));
+    }
+
+    public static double findSpecificPrime(int index) {
+        ArrayList<Double> foundPrimes = new ArrayList<>(index);
+        Boolean prime = true;
+        foundPrimes.add(2D);
+        foundPrimes.add(3D);
+
+        double x;
+
+        for (x = 5D; foundPrimes.size() < index; x += 2D) {
+
+            for (double p : foundPrimes) {
+                if (x % p == 0) {
+                    prime = false;
+                    break;
+                }
+            }
+            if (prime) {
+                foundPrimes.add(x);
+            }
+            System.out.println(prime);
+            prime = true;
+        }
+
+        return foundPrimes.get(index-1);
+    }
 }
