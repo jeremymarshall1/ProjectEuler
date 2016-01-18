@@ -32,7 +32,7 @@ public class PEuler4 {
         while (prodRangeEnd > prodRangeStart){
             if (isPalindromic(prodRangeEnd)){
                 //find factors
-                int[] checkOperands = new int[2];
+                int[] checkOperands;
                 checkOperands = hasThreeDigitOperands(prodRangeEnd);
                 if (checkOperands[0] != 0){
                     System.out.println(checkOperands[0] + "," + checkOperands[1]);
@@ -46,10 +46,11 @@ public class PEuler4 {
     }
 
     public static boolean isPalindromic(int number) {
+
         String stNumber = Integer.toString(number);
         int endIndex = stNumber.length() -1;
 
-        for (int x = 0; x < stNumber.length(); x++) {
+        for (int x = 0; x < (stNumber.length()/2); x++) {
             if (!(stNumber.charAt(x) == stNumber.charAt(endIndex-x))) {
                 return false;
             }
@@ -58,7 +59,7 @@ public class PEuler4 {
     }
 
     public static int[] hasThreeDigitOperands(int number) {
-        int otherOperand = 0;
+        int otherOperand;
         for (int x = 100; x < 1000; x++){
             if (number % x == 0) {
                 otherOperand = number / x;
