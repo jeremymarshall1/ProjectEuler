@@ -3,6 +3,7 @@ package ProjectEuler;
 import java.util.ArrayList;
 
 /**
+ * A class to gather all the useful methods created during my Project Euler work
  * Created by jeremy on 12/24/15.
  */
 public class Nums {
