@@ -1,7 +1,5 @@
 package PEuler6;
 
-import java.lang.reflect.Array;
-
 /**
  * Sum square difference
  * Problem 6
