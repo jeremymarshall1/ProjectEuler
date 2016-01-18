@@ -28,6 +28,35 @@ public class Nums {
         return factors;
     }
 
+    public static double findSpecificPrime(int index) {
+        ArrayList<Double> foundPrimes = new ArrayList<>();
+        Boolean isPrime = true;
+
+        foundPrimes.add(2D);
+        foundPrimes.add(3D);
+
+        for (double x = 5D; foundPrimes.size() < index; x += 2D) {
+
+            for (double p : foundPrimes) {
+                if (x % p == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+
+            if (isPrime) {
+                foundPrimes.add(x);
+            }
+
+            isPrime = true;
+
+        }
+
+        return foundPrimes.get(index-1);
+
+    }
+
+
     public static void main(String[] args) {
         ArrayList<Double> answer = getPrimeFactors(600851475143D);
         System.out.println(answer.get(answer.size() - 1));
