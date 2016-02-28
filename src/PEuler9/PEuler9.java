@@ -19,16 +19,44 @@ import java.util.ArrayList;
 public class PEuler9 {
     public static void main(String[] args) {
         int [] triplet = findPythagoranTriplet(1000);
+        int product = 1;
         for (int x: triplet) {
-            System.out.println(x);
+            product = product * x;
         }
+
+        System.out.println(product);
 
     }
 
     private static int[] findPythagoranTriplet(int sum) {
         int [] triplet = {0, 0, 0};
+        int tripleSum = 0;
 
+        for (int m = 1; m < Math.sqrt(sum); m++) {
+            tripleSum = 0;
+            for (int n = m + 1; tripleSum < sum; n++) {
+                tripleSum = 0;
 
+                /** Using Euclid's Formula, brute force pythagorean numbers
+                 * With m < n
+                 */
+                triplet[0] = (n * n) - (m * m);
+                triplet[1] = 2 * n * m;
+                triplet[2] = (n * n) + (m * m);
+
+                for (int x : triplet) {
+                    tripleSum += x;
+                }
+
+            }
+            if (tripleSum == sum) {
+                break;
+            }
+        }
+
+        if (tripleSum != sum) {
+            return new int [] {0, 0, 0};
+        }
 
         return triplet;
     }
