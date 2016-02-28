@@ -26,11 +26,9 @@ public class PEuler9 {
     }
 
     private static int[] findPythagoranTriplet(int sum) {
-        int [] triplet = new int [3];
+        int [] triplet = {0, 0, 0};
 
-        triplet[0] = 0;
-        triplet[1] = 0;
-        triplet[2] = 0;
+
 
         return triplet;
     }
