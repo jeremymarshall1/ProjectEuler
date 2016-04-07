@@ -92,15 +92,15 @@ class Matrix {
         return 0;
     }
 
-    public int lrProduct() {
+    public int drProduct() {
         return 0;
     }
 
-    public int lProduct() {
+    public int dProduct() {
         return 0;
     }
 
-    public int llProduct() {
+    public int dlProduct() {
         return 0;
     }
 
