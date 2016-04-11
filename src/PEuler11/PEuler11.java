@@ -105,9 +105,9 @@ public class PEuler11 {
 class Matrix {
     int [][] matrix = new int[20][20];
     public void inputMatrix() {
-        BufferedReader inStream = null;
-        Scanner s = null;
-        String line = null;
+        BufferedReader inStream;
+        Scanner s;
+        String line;
         try {
             inStream = new BufferedReader(new FileReader("/home/jeremy/ProjectEuler/src/PEuler11/matrix.txt"));
 
