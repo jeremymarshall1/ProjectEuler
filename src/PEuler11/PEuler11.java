@@ -40,7 +40,65 @@ public class PEuler11 {
     public static void main(String[] args) {
         System.out.println("test");
         Matrix test = new Matrix();
+        int result = 0;
+        int testResult;
         test.inputMatrix();
+
+        for(int row = 0; row < 20; row++){
+            for(int col = 0; col < 20; col++) {
+                testResult = 0;
+                //System.out.println("4 Left: " + test.lProduct(row, col, 4));
+                //System.out.println("4 Upper Left: " + test.ulProduct(row, col, 4));
+                //System.out.println("4 Upper: " + test.uProduct(row, col, 4));
+                //System.out.println("4 Upper Right: " + test.urProduct(row, col, 4));
+                //System.out.println("4 Right: " + test.rProduct(row, col, 4));
+                //System.out.println("4 Down Right: " + test.drProduct(row, col, 4));
+                //System.out.println("4 Down: " + test.dProduct(row, col, 4));
+                //System.out.println("4 Down Left: " + test.dlProduct(row, col, 4));
+                testResult = test.lProduct(row, col, 4);
+                if (testResult > result) {
+                    result = testResult;
+                }
+
+                testResult = test.ulProduct(row, col, 4);
+                if (testResult > result) {
+                    result = testResult;
+                }
+
+                testResult = test.uProduct(row, col, 4);
+                if (testResult > result) {
+                    result = testResult;
+                }
+
+                testResult = test.urProduct(row, col, 4);
+                if (testResult > result) {
+                    result = testResult;
+                }
+
+                testResult = test.rProduct(row, col, 4);
+                if (testResult > result) {
+                    result = testResult;
+                }
+
+                testResult = test.drProduct(row, col, 4);
+                if (testResult > result) {
+                    result = testResult;
+                }
+
+                testResult = test.dProduct(row, col, 4);
+                if (testResult > result) {
+                    result = testResult;
+                }
+
+                testResult = test.dlProduct(row, col, 4);
+                if (testResult > result) {
+                    result = testResult;
+                }
+
+            }
+        }
+
+        System.out.println(result);
     }
 }
 
@@ -54,12 +112,12 @@ class Matrix {
             inStream = new BufferedReader(new FileReader("/home/jeremy/ProjectEuler/src/PEuler11/matrix.txt"));
 
             line = inStream.readLine();
-            for (int x = 0; line != null && line.length() != 0; x++) {
+            for (int row = 0; line != null && line.length() != 0; row++) {
                 System.out.println(line);
 
                 s = new Scanner(line);
-                for(int y = 0; s.hasNext(); y++){
-                    matrix[x][y] = s.nextInt();
+                for(int col = 0; s.hasNext(); col++){
+                    matrix[row][col] = s.nextInt();
                 }
                 line = inStream.readLine();
             }
@@ -72,36 +130,108 @@ class Matrix {
         }
     }
 
-    public int lProduct() {
-        return 0;
+    public int lProduct(int row, int col, int size) {
+        int product = 1;
+        if (col < size - 1) {
+            return product;
+        }
+
+        for(int x = 0; x < size; x++){
+            product *= this.getIndex(row, col - x);
+        }
+        return product;
     }
 
-    public int ulProduct() {
-        return 0;
+    public int ulProduct(int row, int col, int size) {
+        int product = 1;
+        if (col < size - 1 || row < size - 1){
+            return product;
+        }
+
+        for(int x = 0; x < size; x++){
+            product *= this.getIndex(row - x, col - x);
+        }
+
+        return product;
     }
 
-    public int uProduct() {
-        return 0;
+    public int uProduct(int row, int col, int size) {
+        int product = 1;
+        if (row < size - 1) {
+            return product;
+        }
+
+        for(int x = 0; x < size; x++){
+            product *= this.getIndex(row - x, col);
+        }
+        return product;
     }
 
-    public int urProduct() {
-        return 0;
+    public int urProduct(int row, int col, int size) {
+        int product = 1;
+        if (col + size > matrix.length || row < size - 1 || row + size > matrix[row].length){
+            return product;
+        }
+
+        for(int x = 0; x < size; x++){
+            product *= this.getIndex(row - x, col + x);
+        }
+
+        return product;
     }
 
-    public int rProduct() {
-        return 0;
+    public int rProduct(int row, int col, int size) {
+        int product = 1;
+        if (col + size > matrix.length) {
+            return product;
+        }
+
+        for(int x = 0; x < size; x++){
+            product *= this.getIndex(row, col + x);
+        }
+        return product;
     }
 
-    public int drProduct() {
-        return 0;
+    public int drProduct(int row, int col, int size) {
+        int product = 1;
+        if (col + size > matrix.length || row + size > matrix[row].length){
+            return product;
+        }
+
+        for(int x = 0; x < size; x++){
+            product *= this.getIndex(row + x, col + x);
+        }
+
+        return product;
     }
 
-    public int dProduct() {
-        return 0;
+    public int dProduct(int row, int col, int size) {
+        int product = 1;
+        if (row + size > matrix.length) {
+            return product;
+        }
+
+        for(int x = 0; x < size; x++){
+            product *= this.getIndex(row + x, col);
+        }
+        return product;
     }
 
-    public int dlProduct() {
-        return 0;
+    public int dlProduct(int row, int col, int size) {
+        int product = 1;
+        if (col + size > matrix.length || col < size - 1 || row + size > matrix[row].length){
+            return product;
+        }
+
+        for(int x = 0; x < size; x++){
+            product *= this.getIndex(row + x, col - x);
+        }
+
+        return product;
+    }
+
+    public int getIndex(int row, int col) {
+        return matrix[row][col];
     }
 
 }
