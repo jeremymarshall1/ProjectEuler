@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+import static ProjectEuler.Nums.getPrimeFactors;
+
 /**
  * Largest prime factor
  * Problem 3
@@ -9,14 +11,14 @@ import java.util.ArrayList;
  *
  * Created by jeremy on 12/5/15.
  */
-public class PEuler3 {
+public class PEuler3 implements Solution {
 
-    public static void main(String[] args) {
+    public void solve(String[] args) {
         ArrayList<Double> factors = new ArrayList<>();
 
 
 
-        factors = Nums.getPrimeFactors(600851475143D);
+        factors = getPrimeFactors(600851475143D);
 
 
         System.out.println(factors.get(factors.size() - 1));

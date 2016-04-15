@@ -1,5 +1,3 @@
-package PEuler2;
-
 /**
  * Even Fibonacci numbers
  * Problem 2
@@ -13,9 +11,9 @@ package PEuler2;
  *
  * Created by jeremy on 12/5/15.
  */
-public class PEuler2 {
+public class PEuler2 implements Solution {
 
-    public static void main(String[] args) {
+    public void solve(String[] args) {
         int latestFibNum = 0;
         int totalSum = 0;
         int maxNumber = 4000000;
