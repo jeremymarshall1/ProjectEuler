@@ -1,5 +1,3 @@
-package PEuler4;
-
 /**
  * Largest palindrome product
  * Problem 4
@@ -9,7 +7,7 @@ package PEuler4;
  * Find the largest palindrome made from the product of two 3-digit numbers.
  * Created by jeremy on 12/6/15.
  */
-public class PEuler4 {
+public class PEuler4 implements Solution {
     /**
      * Range of possible 3-digit numbers: 100-999
      * Range of possible products from 2 3-digit numbers: 10000 - 998001
@@ -22,7 +20,7 @@ public class PEuler4 {
      * value, until a palindrome is found
      */
 
-    public static void main(String[] args) {
+    public void solve(String[] args) {
         int rangeStart = 100;
         int rangeEnd = 999;
 
