@@ -6,6 +6,9 @@ class Main {
     public static void main(String[] args) {
         Solution test = new PEuler1();
         test.solve(args);
+
+        test = new PEuler2();
+        test.solve(args);
     }
 }
 

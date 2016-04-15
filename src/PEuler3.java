@@ -1,5 +1,3 @@
-package PEuler3;
-
 import java.util.ArrayList;
 
 /**
@@ -18,7 +16,7 @@ public class PEuler3 {
 
 
 
-        factors = ProjectEuler.Nums.getPrimeFactors(600851475143D);
+        factors = Nums.getPrimeFactors(600851475143D);
 
 
         System.out.println(factors.get(factors.size() - 1));
