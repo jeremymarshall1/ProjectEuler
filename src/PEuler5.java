@@ -1,5 +1,3 @@
-package PEuler5;
-
 /**
  * Smallest multiple
  * Problem 5
@@ -9,8 +7,8 @@ package PEuler5;
  *
  * Created by jeremy on 1/17/16.
  */
-public class PEuler5 {
-    public static void main(String[] args) {
+public class PEuler5 implements Solution {
+    public void solve(String[] args) {
         System.out.println(getSmallestMultiple(20));
     }
 
