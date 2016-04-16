@@ -19,6 +19,9 @@ class Main {
         test = new PEuler5();
         test.solve(args);
 
+        test = new PEuler6();
+        test.solve(args);
+
         test = new PEuler10();
         test.solve(args);
     }
