@@ -5,7 +5,7 @@
 class Main {
     public static void main(String[] args) {
         Solution test;
-        String className;
+        String className = "";
         Object tests;
         boolean single = false;
 
@@ -22,7 +22,10 @@ class Main {
 
         try {
             for (int x = 1;; x++){
-                className = "PEuler" + x;
+                if (!single) {
+                    className = "PEuler" + x;
+                }
+
                 tests = Class.forName(className).newInstance();
                 System.out.print(tests.getClass().getName() + ": ");
                 tests.getClass().getMethod("solve",String[].class).invoke(tests, new Object[]{args});
