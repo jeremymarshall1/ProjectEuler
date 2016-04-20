@@ -1,5 +1,3 @@
-package PEuler9;
-
 import java.util.ArrayList;
 
 /**
@@ -16,8 +14,8 @@ import java.util.ArrayList;
  *
  * Created by jeremy on 2/27/16.
  */
-public class PEuler9 {
-    public static void main(String[] args) {
+public class PEuler9 implements Solution{
+    public void solve(String[] args) {
         int [] triplet = findPythagoranTriplet(1000);
         int product = 1;
         for (int x: triplet) {
