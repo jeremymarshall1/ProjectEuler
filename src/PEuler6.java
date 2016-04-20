@@ -1,5 +1,3 @@
-package PEuler6;
-
 /**
  * Sum square difference
  * Problem 6
@@ -15,7 +13,7 @@ package PEuler6;
  *
  * Created by jeremy on 1/17/16.
  */
-public class PEuler6 {
+public class PEuler6 implements  Solution {
     public static int getSumSqDiff(int num) {
         int sumSquare = 0;
         int squareSum = 0;
@@ -36,7 +34,7 @@ public class PEuler6 {
         return (sumSquare - squareSum);
     }
 
-    public static void main(String[] args) {
+    public void solve(String[] args) {
         System.out.println(getSumSqDiff(100));
     }
 }
