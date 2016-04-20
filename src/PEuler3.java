@@ -15,10 +15,14 @@ public class PEuler3 implements Solution {
 
     public void solve(String[] args) {
         ArrayList<Double> factors = new ArrayList<>();
+        Double num = 600851475143D;
+        if (args.length > 0) {
+            num = Double.parseDouble(args[0]);
+        }
 
 
 
-        factors = getPrimeFactors(600851475143D);
+        factors = getPrimeFactors(num);
 
 
         System.out.println(factors.get(factors.size() - 1));
