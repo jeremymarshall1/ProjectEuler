@@ -9,6 +9,10 @@ class Main {
         Object tests;
         boolean single = false;
 
+        // Check for any command-line arguments
+        // 1st - Problem # to run
+        // 2nd + - arguments for that problem's class
+        // This logic will set the problem to run as well as remove it from the args
         if (args.length > 0) {
             System.out.println("Running PEuler" + args[0] + ": ");
             className = "PEuler" + args[0];
@@ -22,6 +26,7 @@ class Main {
 
         try {
             for (int x = 1;; x++){
+                // If a command-line argument was passed in, don't iterate through all classes
                 if (!single) {
                     className = "PEuler" + x;
                 }
@@ -29,6 +34,8 @@ class Main {
                 tests = Class.forName(className).newInstance();
                 System.out.print(tests.getClass().getName() + ": ");
                 tests.getClass().getMethod("solve",String[].class).invoke(tests, new Object[]{args});
+
+                // If a command-line argument was passed in, only do the specified problem
                 if (single) {
                     break;
                 }
