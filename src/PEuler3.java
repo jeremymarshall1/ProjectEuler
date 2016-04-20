@@ -1,7 +1,5 @@
 import java.util.ArrayList;
 
-import static ProjectEuler.Nums.getPrimeFactors;
-
 /**
  * Largest prime factor
  * Problem 3
@@ -22,7 +20,7 @@ public class PEuler3 implements Solution {
             num = Double.parseDouble(args[0]);
         }
 
-        factors = getPrimeFactors(num);
+        factors = Nums.getPrimeFactors(num);
 
         System.out.println(factors.get(factors.size() - 1));
     }
@@ -43,7 +41,7 @@ public class PEuler3 implements Solution {
             }
 
         }
-        
+
         // Convert to regular long array
         long[] returnValue = new long[allNumbers.size()];
 
