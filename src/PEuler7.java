@@ -1,5 +1,3 @@
-package PEuler7;
-
 import java.util.ArrayList;
 
 /**
@@ -12,9 +10,9 @@ import java.util.ArrayList;
  * Created by jeremy on 1/17/16.
  */
 
-public class PEuler7 {
+public class PEuler7 implements Solution{
 
-    public static void main(String[] args) {
+    public void solve(String[] args) {
 
         System.out.println(findSpecificPrime(10001));
     }
