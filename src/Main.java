@@ -4,38 +4,24 @@
 
 class Main {
     public static void main(String[] args) {
-        Solution test = new PEuler1();
-        test.solve(args);
+        Solution test;
+        String className;
 
-        test = new PEuler2();
-        test.solve(args);
+        if (args.length == 0) {
+            System.out.println("null args");
+        }
 
-        test = new PEuler3();
-        test.solve(args);
-
-        test = new PEuler4();
-        test.solve(args);
-
-        test = new PEuler5();
-        test.solve(args);
-
-        test = new PEuler6();
-        test.solve(args);
-
-        test = new PEuler7();
-        test.solve(args);
-
-        test = new PEuler8();
-        test.solve(args);
-
-        test = new PEuler9();
-        test.solve(args);
-
-        test = new PEuler10();
-        test.solve(args);
-
-        test = new PEuler11();
-        test.solve(args);
+        try {
+            for (int x = 1;; x++){
+                className = "PEuler" + x;
+                Object tests = Class.forName(className).newInstance();
+                System.out.print(tests.getClass().getName() + ": ");
+                tests.getClass().getMethod("solve",String[].class).invoke(tests, new Object[]{args});
+            }
+        } catch (Exception err) {
+            System.out.println(err);
+            System.out.println("There are no more tests");
+        }
     }
 }
 
