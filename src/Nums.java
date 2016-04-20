@@ -1,5 +1,3 @@
-package ProjectEuler;
-
 import java.util.ArrayList;
 
 /**
