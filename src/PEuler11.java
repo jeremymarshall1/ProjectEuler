@@ -1,5 +1,3 @@
-package PEuler11;
-
 import java.io.*;
 import java.util.Scanner;
 
@@ -36,8 +34,8 @@ import java.util.Scanner;
  *
  * Created by jeremy on 4/3/16.
  */
-public class PEuler11 {
-    public static void main(String[] args) {
+public class PEuler11 implements Solution{
+    public void solve(String[] args) {
         System.out.println("test");
         Matrix test = new Matrix();
         int result = 0;
@@ -109,7 +107,7 @@ class Matrix {
         Scanner s;
         String line;
         try {
-            inStream = new BufferedReader(new FileReader("/home/jeremy/ProjectEuler/src/PEuler11/matrix.txt"));
+            inStream = new BufferedReader(new FileReader("/home/jeremy/ProjectEuler/src/matrix.txt"));
 
             line = inStream.readLine();
             for (int row = 0; line != null && line.length() != 0; row++) {

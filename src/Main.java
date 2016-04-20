@@ -33,6 +33,9 @@ class Main {
 
         test = new PEuler10();
         test.solve(args);
+
+        test = new PEuler11();
+        test.solve(args);
     }
 }
 
