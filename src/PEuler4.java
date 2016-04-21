@@ -24,6 +24,11 @@ public class PEuler4 implements Solution {
         int rangeStart = 100;
         int rangeEnd = 999;
 
+        if (args.length > 0) {
+            rangeStart = Integer.valueOf(args[0]);
+            rangeEnd = Integer.valueOf(args[1]);
+        }
+
         int prodRangeStart = rangeStart * rangeStart;
         int prodRangeEnd = rangeEnd * rangeEnd;
 
@@ -31,7 +36,7 @@ public class PEuler4 implements Solution {
             if (isPalindromic(prodRangeEnd)){
                 //find factors
                 int[] checkOperands;
-                checkOperands = hasThreeDigitOperands(prodRangeEnd);
+                checkOperands = hasThreeDigitOperands(prodRangeEnd, rangeStart, rangeEnd);
                 if (checkOperands[0] != 0){
                     System.out.println(checkOperands[0] + "," + checkOperands[1]);
                     System.out.println(prodRangeEnd);
@@ -56,16 +61,16 @@ public class PEuler4 implements Solution {
         return true;
     }
 
-    public static int[] hasThreeDigitOperands(int number) {
+    public static int[] hasThreeDigitOperands(int number, int rangeStart, int rangeEnd) {
         int otherOperand;
-        for (int x = 100; x < 1000; x++){
+        for (int x = rangeStart; x <= rangeEnd; x++){
             if (number % x == 0) {
                 otherOperand = number / x;
             } else {
                 continue;
             }
 
-            if ((100 <= otherOperand) && (otherOperand < 1000)) {
+            if ((rangeStart <= otherOperand) && (otherOperand <= rangeEnd)) {
                 int[] returnValue = new int[2];
                 returnValue[0] = x;
                 returnValue[1] = otherOperand;
