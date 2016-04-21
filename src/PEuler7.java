@@ -13,8 +13,13 @@ import java.util.ArrayList;
 public class PEuler7 implements Solution{
 
     public void solve(String[] args) {
+        int num = 10001;
 
-        System.out.println(findSpecificPrime(10001));
+        if (args.length > 0) {
+            num = Integer.valueOf(args[0]);
+        }
+
+        System.out.println(findSpecificPrime(num));
     }
 
     public static double findSpecificPrime(int index) {
