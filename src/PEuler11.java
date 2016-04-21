@@ -34,25 +34,18 @@ import java.util.Scanner;
  *
  * Created by jeremy on 4/3/16.
  */
+
 public class PEuler11 implements Solution{
     public void solve(String[] args) {
-        System.out.println("test");
         Matrix test = new Matrix();
         int result = 0;
         int testResult;
-        test.inputMatrix();
+        test.inputMatrix(args);
 
         for(int row = 0; row < 20; row++){
             for(int col = 0; col < 20; col++) {
                 testResult = 0;
-                //System.out.println("4 Left: " + test.lProduct(row, col, 4));
-                //System.out.println("4 Upper Left: " + test.ulProduct(row, col, 4));
-                //System.out.println("4 Upper: " + test.uProduct(row, col, 4));
-                //System.out.println("4 Upper Right: " + test.urProduct(row, col, 4));
-                //System.out.println("4 Right: " + test.rProduct(row, col, 4));
-                //System.out.println("4 Down Right: " + test.drProduct(row, col, 4));
-                //System.out.println("4 Down: " + test.dProduct(row, col, 4));
-                //System.out.println("4 Down Left: " + test.dlProduct(row, col, 4));
+
                 testResult = test.lProduct(row, col, 4);
                 if (testResult > result) {
                     result = testResult;
@@ -73,26 +66,6 @@ public class PEuler11 implements Solution{
                     result = testResult;
                 }
 
-                testResult = test.rProduct(row, col, 4);
-                if (testResult > result) {
-                    result = testResult;
-                }
-
-                testResult = test.drProduct(row, col, 4);
-                if (testResult > result) {
-                    result = testResult;
-                }
-
-                testResult = test.dProduct(row, col, 4);
-                if (testResult > result) {
-                    result = testResult;
-                }
-
-                testResult = test.dlProduct(row, col, 4);
-                if (testResult > result) {
-                    result = testResult;
-                }
-
             }
         }
 
@@ -102,16 +75,23 @@ public class PEuler11 implements Solution{
 
 class Matrix {
     int [][] matrix = new int[20][20];
-    public void inputMatrix() {
+    public void inputMatrix(String[] args) {
         BufferedReader inStream;
         Scanner s;
         String line;
+        String fileName = "/home/jeremy/ProjectEuler/src/matrix.txt";
+
+        if (args.length > 0) {
+            fileName = args[0];
+        }
+
         try {
-            inStream = new BufferedReader(new FileReader("/home/jeremy/ProjectEuler/src/matrix.txt"));
+
+            inStream = new BufferedReader(new FileReader(fileName));
 
             line = inStream.readLine();
             for (int row = 0; line != null && line.length() != 0; row++) {
-                System.out.println(line);
+                //System.out.println(line);
 
                 s = new Scanner(line);
                 for(int col = 0; s.hasNext(); col++){
