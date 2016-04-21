@@ -35,6 +35,12 @@ public class PEuler6 implements  Solution {
     }
 
     public void solve(String[] args) {
-        System.out.println(getSumSqDiff(100));
+        int num = 100;
+
+        if (args.length > 0) {
+            num = Integer.valueOf(args[0]);
+        }
+
+        System.out.println(getSumSqDiff(num));
     }
 }
