@@ -9,7 +9,13 @@
  */
 public class PEuler5 implements Solution {
     public void solve(String[] args) {
-        System.out.println(getSmallestMultiple(20));
+        int num = 20;
+
+        if (args.length > 0) {
+            num = Integer.valueOf(args[0]);
+        }
+
+        System.out.println(getSmallestMultiple(num));
     }
 
     public static int getSmallestMultiple(int num) {
