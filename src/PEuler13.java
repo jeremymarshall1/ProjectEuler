@@ -1,3 +1,7 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.math.BigInteger;
+
 /**
  * Large sum
  * Problem 13
@@ -109,6 +113,37 @@
 public class PEuler13 implements Solution{
     @Override
     public void solve(String[] args) {
-        System.out.println(0);
+        largeNumberAddition test = new largeNumberAddition();
+        test.calculateSum();
     }
+}
+
+class largeNumberAddition {
+    BufferedReader inStream;
+    BigInteger finalValue = new BigInteger("0");
+
+    public void calculateSum() {
+        inputFile();
+
+        String s;
+        try {
+
+            while ((s = inStream.readLine()) != null) {
+                finalValue = finalValue.add(new BigInteger(s));
+            }
+        } catch (Exception err) {
+            System.out.println(err);
+        }
+
+        System.out.println(finalValue.toString());
+    }
+
+    public void inputFile() {
+        try {
+            inStream = new BufferedReader(new FileReader("/home/jeremy/ProjectEuler/src/numList.txt"));
+        } catch (Exception err) {
+            System.out.println(err);
+        }
+    }
+
 }
