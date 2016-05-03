@@ -19,5 +19,22 @@
  * Created by jeremy on 5/3/16.
  */
 
-public class PEuler14 {
+public class PEuler14 implements Solution {
+    public void solve(String[] args) {
+        System.out.println(collatzLen(999999));
+    }
+
+    int collatzLen(int x) {
+
+        if (x == 1) {
+            System.out.println(x);
+            return x;
+        }
+
+        System.out.print(x + ", ");
+        x = (x % 2 == 0) ? collatzLen(x / 2) : collatzLen(3 * x + 1);
+        x++;
+
+        return x;
+    }
 }
