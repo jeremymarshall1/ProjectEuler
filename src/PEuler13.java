@@ -135,7 +135,8 @@ class largeNumberAddition {
             System.out.println(err);
         }
 
-        System.out.println(finalValue.toString());
+        System.out.println("The full sum is: " + finalValue.toString());
+        System.out.println("The first 10 digits of the sum are: " + finalValue.toString().substring(0,10));
     }
 
     public void inputFile() {
