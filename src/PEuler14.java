@@ -1,3 +1,5 @@
+import java.math.BigInteger;
+
 /**
  * Longest Collatz sequence
  * Problem 14
@@ -21,20 +23,30 @@
 
 public class PEuler14 implements Solution {
     public void solve(String[] args) {
-        System.out.println(collatzLen(999999));
+        long longestChain = 0;
+        long currentChain;
+
+        for (long x = 1; x < 1000000; x++){
+            currentChain = collatzLen(x);
+            if (currentChain >= longestChain) {
+                longestChain = currentChain;
+                System.out.println("The new largest chain is " + longestChain + " numbers created from " + x);
+            }
+        }
+        //collatzLen(983039L);
     }
 
-    int collatzLen(int x) {
+    long collatzLen(long x) {
 
         if (x == 1) {
-            System.out.println(x);
+            //System.out.println(x);
             return x;
         }
 
-        System.out.print(x + ", ");
+        //System.out.print(x + ", ");
         x = (x % 2 == 0) ? collatzLen(x / 2) : collatzLen(3 * x + 1);
         x++;
-
+        //System.out.println(x);
         return x;
     }
 }
